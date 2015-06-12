@@ -18,10 +18,12 @@ get "/" do
   erb :homepage
 end
 
-get "/1" do
 
-  slide = Slide.find(1)
-  binding.pry
+# get "/1" do
+get "/slides/:id" do
+# changes params from find(1)
+  slide = Slide.find(params[:id])
+  # binding.pry
   slide_hash = slide.to_hash
   slide_hash.to_json
 end
